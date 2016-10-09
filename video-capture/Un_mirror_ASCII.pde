@@ -1,14 +1,14 @@
-/***** Instale a biblioteca "video" pelo IDE!
- * Luminãncia e ASCII, zoando exemplos do Daniel Shiffman
- * no Processing 
- * 'R' para gravar frames, 'C' para modo clorido,
- * 1|2 para tamanho da fonte, Setas cima|baixo tamanho da grade
+/***** Primeiro instale a biblioteca "video" pelo IDE!
+ * Brilho e ASCII, zoando demos do Daniel Shiffman
+ * nos exemplos da biblioteca video do Processing. 
+   Tecle 'R' para gravar frames, 'C' para modo colorido,
+   1|2 para tamanho da fonte, Setas cima|baixo tamanho da grade
  ***** Install "video" library using the IDE!
- * Luminance and ASCII
+ * Brightness and ASCII
  * Messing with Processing demos by coding hero Daniel Shiffman.  
- * 'R' to toggle saveFrame(),'C' to toggle color mode,
- * 1|2 to change font size, UP|DOWN to change grid size
- *****/
+   Press 'R' to toggle saveFrame(),'C' to toggle color mode,
+   1|2 to change font size, UP|DOWN to change grid size
+ */
 
 import processing.video.*;
 
@@ -56,10 +56,10 @@ void draw() {
         int loc = x + y*video.width;
         color cor = video.pixels[loc];        
         if (colorido) {
-          fill(cor);
+          fill(cor); // letras coloridas
         } else {
-          fill(255);
-        }                                     // branco
+          fill(255); // letras em branco
+        }                                     
         float lumin = brightness(cor);  // calcula luminosidade do pixel
         text(letters[int(lumin)], x+tamanho/2, y+tamanho/2);
       }
