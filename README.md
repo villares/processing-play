@@ -1,7 +1,8 @@
-# processing-play
+# Exemplos de codigo Processing (Java, standard mode)
 
-Exemplos de codigo em Processing (Java, standard mode) divertidos para minhas aulas.
+Para executar, baixe o IDE do Processing em http://processing.org/download e experimente!
 
-Baixe o IDE do Processing em http://processing.org/download e experimente!
+## Acha útil este material? Faça uma pequena doação em http://patreon.com/arteprog
 
-Aulas de programação para artistas, designers e arquitetos? Pergunte-me como! http://contato.lugaralgum.com
+Mais sobre programação para artistas, designers e arquitetos? http://arteprog.space<br>
+Ou entre em contato! http://contato.lugaralgum.com
