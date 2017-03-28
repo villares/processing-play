@@ -1,3 +1,8 @@
+/* Exemplo de orientação a objetos
+ * com uma lista dinâmica 'ArrayList' de bolinhas
+ * da classe Bola.
+ */
+ 
 //Bola bola0;
 ArrayList<Bola> bolas;
 
