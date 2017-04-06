@@ -6,7 +6,7 @@
 import peasy.*;
 
 PeasyCam cam;
-CameraState saved_cam; // used to save a camera state
+CameraState saved_cam; // global used to save a camera state
 
 void setup() {
   size(200, 200, P3D);
@@ -14,11 +14,11 @@ void setup() {
   cam.setMinimumDistance(50);
   cam.setMaximumDistance(500);
   // Reassign some drag handlers  
-  PeasyDragHandler orbitDH = cam.getRotateDragHandler();  // get the rotate Handler
+  PeasyDragHandler orbitDH = cam.getRotateDragHandler();  // get the RotateDragHandler
   cam.setCenterDragHandler(orbitDH);                     // set it to the Center/Wheel click/drag
-  PeasyDragHandler panDH = cam.getPanDragHandler();     // get the rotate Handler
-  cam.setRightDragHandler(panDH);                      // set left-button mouse drag
-  cam.setLeftDragHandler(null);                       // disable right-drag
+  PeasyDragHandler panDH = cam.getPanDragHandler();     // get the PanDragHandler
+  cam.setRightDragHandler(panDH);                      // set it to the left-button mouse drag
+  cam.setLeftDragHandler(null);                       // sets no left-drag Handler
 }
 void draw() {
   background(0);
