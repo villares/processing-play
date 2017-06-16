@@ -1,15 +1,17 @@
 /*
-  Zoando o 'Mirror2' do Daniel Shiffman
- Messing with Processing demo 'Mirror2' by coding hero Daniel Shiffman.  
- Grid of circles, size varies with the brightness of the captured pixel at the center of each circle
+   Zoando o 'Mirror2' do Daniel Shiffman.
+   Messing with Processing demo 'Mirror2' by coding hero Daniel Shiffman.  
+ Grid of circles, size varies with the brightness of the captured pixel at the center of each circle.
+ 'g' to toggle recording, 'c' to togle colour. 
  */
 
 import processing.video.*;
-int tamanho = 10; // tamanho das células da grade
+int tamanho = 8; // tamanho das células da grade
 int colunas, filas;
 // Varíavel que guarda a captura
 Capture video;
 boolean gravar = false;
+boolean colorido = true;
 
 void setup() {
   size(640, 480);
@@ -26,6 +28,7 @@ void setup() {
 }
 
 void draw() { 
+  background(0);
   if (video.available()) {
     video.read();
     video.loadPixels();  
@@ -36,10 +39,10 @@ void draw() {
         int x = i*tamanho;
         int y = j*tamanho;
         int loc = x + y*video.width;
-        fill(0);                                             // preto
-        ellipse(x+tamanho/2, y+tamanho/2, tamanho, tamanho); // círculo preto
-        fill(255);                                    // branco
-        float lumin = brightness(video.pixels[loc]);  // calcula luminosidade do pixel
+        color cor = video.pixels[loc]; 
+        if (colorido) fill(cor); 
+        else fill(255);
+        float lumin = brightness(cor);  // calcula luminosidade do pixel
         ellipse(x+tamanho/2, y+tamanho/2, tamanho*lumin/255, tamanho*lumin/255);
       }
     }
@@ -47,6 +50,7 @@ void draw() {
   }
 }
 void keyPressed() {
-  gravar = !gravar;
-  println("gravando: ", gravar);
+  if (key == 'g') gravar = !gravar;
+  if (key == 'c') colorido = !colorido;
+  println("gravando: ", gravar, " colorido: ", colorido);
 }
