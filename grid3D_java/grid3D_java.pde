@@ -4,16 +4,16 @@
  3. install PeasyCam library under Sketch...>Import Libray...>Add Library...
  */
 
-import peasy.* ;// Drag the mouse to orbit!
+import peasy.* ; // Drag the mouse to orbit!
 PeasyCam cam;
 
 float ang = 0;
-int bSize = 5   ;// bSize <= box_size < bSize * 2
+int bSize = 5; // bSize <= box_size < bSize * 2
 int bRange = 5; 
-int numberOfBoxes = int( pow(bRange * 2 - 1, 3));
-float sSize = 10  ;// Controls the spacing of the grid
-float slide = 5    ;// Changes the sliding behaviour
-float speed = 0.01 ;// Increments ang
+int numberOfBoxes = (int)pow(bRange * 2 - 1, 3);
+float sSize = 10;   // Controls the spacing of the grid
+float slide = 5;    // Changes the sliding behaviour
+float speed = 0.01; // Increments ang
 color[] colors;
 float[] sizes;
 
@@ -33,9 +33,9 @@ void draw() {
 }
 void myGrid(boolean plot) {
   int c = 0;
-  for (int i= -bRange; i < bRange-1; i++) {
-    for (int j= -bRange; j < bRange-1; j++) {
-      for (int k= -bRange; k < bRange-1; k++) {
+  for (int i = -bRange; i < bRange-1; i++) {
+    for (int j = -bRange; j < bRange-1; j++) {
+      for (int k = -bRange; k < bRange-1; k++) {
         if (plot) {
           fill(colors[c]);
           myBox(i * sSize * sin(ang + i * slide), 
