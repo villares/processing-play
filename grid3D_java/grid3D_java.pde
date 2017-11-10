@@ -10,7 +10,7 @@ PeasyCam cam;
 float ang = 0;
 int bSize = 5; // bSize <= box_size < bSize * 2
 int bRange = 5; 
-int numberOfBoxes = (int)pow(bRange * 2 - 1, 3);
+int numberOfBoxes = (int)pow(bRange * 2, 3);
 float sSize = 10;   // Controls the spacing of the grid
 float slide = 5;    // Changes the sliding behaviour
 float speed = 0.01; // Increments ang
@@ -33,9 +33,9 @@ void draw() {
 }
 void myGrid(boolean plot) {
   int c = 0;
-  for (int i = -bRange; i < bRange-1; i++) {
-    for (int j = -bRange; j < bRange-1; j++) {
-      for (int k = -bRange; k < bRange-1; k++) {
+  for (int i = -bRange; i < bRange; i++) {
+    for (int j = -bRange; j < bRange; j++) {
+      for (int k = -bRange; k < bRange; k++) {
         if (plot) {
           fill(colors[c]);
           myBox(i * sSize * sin(ang + i * slide), 
