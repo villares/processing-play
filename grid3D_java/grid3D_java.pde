@@ -1,10 +1,11 @@
 /*
  A funny wobbling 3D grid - by Alexandre B A Villares (abav.lugaralgum.com)
- 1. install Processing (processing.org)
- 3. install PeasyCam library under Sketch...>Import Libray...>Add Library...
+ 1. Install Processing (processing.org)
+ 3. Install PeasyCam library under Sketch...>Import Libray...>Add Library...
+    Drag mouse to orbit!
  */
 
-import peasy.* ; // Drag the mouse to orbit!
+import peasy.* ; // Easy Peasy orbit!
 PeasyCam cam;
 
 float ang = 0;
