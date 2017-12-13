@@ -1,0 +1,18 @@
+
+void casa(float x, float y, 
+  float larg, color cor) {
+  fill(cor);
+  pushMatrix();
+  translate(x, y);
+  rotate(radians(random(-10, 10)));
+  rect(0, 0, 30, 30);
+  pushMatrix();
+  rotate(PI/4);
+  rect(0, 0, 30, 30);
+  rect(0, 0, 20, 20);
+  popMatrix();
+  fill(random(255), random(255), random(255));
+  rect(0, 0, 10, 10);
+  popMatrix();
+}
+
