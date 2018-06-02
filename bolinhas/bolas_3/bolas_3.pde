@@ -1,6 +1,6 @@
-/* Exemplo de orientação a objetos
- * com uma sistema de partículas com lista dinâmica 'ArrayList' de bolinhas
- * da classe Bola.
+/* Exemplo de um sistema de partículas com lista dinâmica 'ArrayList' 
+ * A classe grupoDeBolas contém uma lista de bolinhas da classe Bola
+ * A festa é ArrayList de grupoDeBolas (uma lista de grupos de bolinhas)
  */
 
 ArrayList<grupoDeBolas> festa; 
@@ -12,7 +12,7 @@ void setup() {
 }
 
 void draw() {
-  background(200);
+  background(100);
   for (grupoDeBolas grupo : festa) {  // para cada lista da festa
     grupo.update();
   }
@@ -20,7 +20,7 @@ void draw() {
   for (int i = festa.size()-1; i >= 0; i--) {  // percorre a festa, do fim para o começo
     grupoDeBolas grupo = festa.get(i);  // pega um grupo
     if (grupo.bolas.size() == 0) {      // se o grupo estiver vazio
-      grupo.remove(i);                  // remove o grupo da festa
+      festa.remove(i);                  // remove o grupo da festa
     }
   }
 }
@@ -36,7 +36,8 @@ class Bola {
     x = px;
     y = py;
     tamanho = random(tam_min, tam_max);
-    cor = color(random(255), random(255), random(255), 128);
+    colorMode(HSB);
+    cor = color(random(100, 200), 255, 255);
     vx = random(-2, 2);
     vy = random(-2, 2);
   }
@@ -73,7 +74,7 @@ class grupoDeBolas {
       bola.desenhar();  
       bola.mover();
     }
-
+    // remove bolas que sairam para baixo do canvas
     for (int i = bolas.size()-1; i >= 0; i--) { 
       Bola bola = bolas.get(i);
       if (bola.y > height) {
