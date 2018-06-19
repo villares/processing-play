@@ -1,6 +1,10 @@
 /*
-Exemplo de Perlin Noise em duas dimensões 
-*/
+ Exemplo de Perlin Noise em duas dimensões 
+ 
+ "There have been debates over the accuracy of the implementation of noise in Processing.
+ For clarification, it's an implementation of "classic Perlin noise" from 1983,
+ and not the newer "simplex noise" method from 2001. "
+ */
 
 float perlinScale = 0.1;
 
