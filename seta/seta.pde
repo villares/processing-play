@@ -1,27 +1,33 @@
-void setup() {
-  size(400, 400);
-}
-void draw() {
-  background(200);
-  ellipse(100, 100, 10, 10);
-  strokeWeight(3);
-  seta(100, 100, 200, 140, 10, 15);
-  ellipse(200, 140, 10, 10);
-}
-void seta(float x1, float y1, float x2, float y2) {
-  seta(x1, y1, x2, y2, 12, 12); //tamanho=12, head=12
-}
-
 void seta(float x1, float y1, float x2, float y2, float encurtamento, float head) {
-  float d = dist(x1, y1, x2, y2);
+  float L = dist(x1, y1, x2, y2);
   pushMatrix();
-  translate(x2, y2);
+  translate(x1, y1);
   float angle = atan2(x1 - x2, y2 - y1);
   rotate(angle);
-  float offset = -encurtamento * .6;
+  float offset = encurtamento / 2;
+  strokeCap(ROUND);
+  line(0, L - offset, -head / 3, L - offset - head);
+  line(0, L - offset, head / 3, L - offset - head);
   strokeCap(SQUARE);
-  line(0, offset, 0, -d - offset);
-  line(0, offset, -head / 3, -head + offset);
-  line(0, offset, head / 3, -head + offset);
+  line(0, offset, 0, L - offset);
   popMatrix();
 }
+
+void seta(float x1, float y1, float x2, float y2) {
+  seta(x1, y1, x2, y2, 10, 15); // default tamanho=10, head=15
+}
+
+void setup() {
+  size(400, 400);
+  strokeWeight(3);
+}
+
+void draw() {
+  background(200);
+  stroke(128);
+  ellipse(200, 140, 10, 10);
+  ellipse(100, 100, 10, 10);
+  stroke(0);
+  seta(100, 100, 200, 140);
+}
+
