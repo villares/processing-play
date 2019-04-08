@@ -1,9 +1,3 @@
-/*
-  Zoando o 'Mirror' do Daniel Shiffman
-  Messing with Processing demo 'Mirror' by coding hero Daniel Shiffman.  
-  Draws a grid of circles using the color from the pixel at the center of each circle
- */
- 
 import processing.video.*;
 int tamanho = 16; // tamanho das células da grade
 int colunas, filas;
@@ -13,18 +7,18 @@ Capture video;
 void setup() {
   size(640, 480);
   noStroke();
-  smooth();
-  rectMode(CENTER); 
   colunas = width / tamanho;
   filas = height / tamanho;
-  video = new Capture(this, width, height);
+  video = new Capture(this, 640, 480);
   // Começa a captura
-  video.start();  
-  background(0);
+  video.start();
 }
 
 void draw() { 
+  colunas = width / tamanho;
+  filas = height / tamanho;
   if (video.available()) {
+    background(0);
     video.read();
     video.loadPixels();  
     // Loopando as colundas da grade
@@ -37,7 +31,12 @@ void draw() {
         color c = video.pixels[loc];
         fill(c);
         ellipse(x+tamanho/2, y+tamanho/2, tamanho-1, tamanho-1);
-      }
-    }
-  }
+      } // finaldo loop das filas
+    } // final das colunas (e da grade!) 
+  } // final do if (video.available())
+} // final do draw()
+
+void keyPressed(){
+ if (key == '-' && tamanho > 1) tamanho--; 
+ if (key == '+') tamanho++; 
 }
