@@ -12,7 +12,7 @@ void draw() {
 }
 
 
-class Slider // baseada no slider do Peter Farell https://github.com/hackingmath/
+class Slider
 {
   float x = 0;
   float y = 0;
@@ -36,18 +36,20 @@ class Slider // baseada no slider do Peter Farell https://github.com/hackingmath
     y = y_;
     //the position of the rect you slide{
     rectx = x + map(val, low, high, 0, 120);
-    recty = y - 10;
+    recty = y;
   }   
   float value() {
     //updates the slider and returns value//
-    //gray line behind slider
-    strokeWeight(4);
-    stroke(100);
-    line(x, y, x + 120, y);
     //press mouse to move slider
     if (mousePressed && dist(mouseX, mouseY, rectx, recty) < 20) {
       rectx = mouseX;
     }
+    pushStyle();
+    rectMode(CENTER);
+    //gray line behind slider
+    strokeWeight(4);
+    stroke(100);
+    line(x, y, x + 120, y);
     //constrain rectangle
     rectx = constrain(rectx, x, x + 120);
     //draw rectangle
@@ -62,6 +64,7 @@ class Slider // baseada no slider do Peter Farell https://github.com/hackingmath
     text(int(val), rectx, recty + 35);
     //text label
     text(label, x + 135, y);
+    popStyle();
     return val;
   }
 }
