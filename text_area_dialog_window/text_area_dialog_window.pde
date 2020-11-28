@@ -8,6 +8,7 @@ void setup() {
                                   // cancel: -1
   int n = JOptionPane.showOptionDialog(null,
                                       new JScrollPane(ta), 
+                                      // or you can use just "ta", without scroll bars
                                       "A Silly Question",  // title
                                       JOptionPane.YES_NO_CANCEL_OPTION, 
                                       JOptionPane.QUESTION_MESSAGE, 
